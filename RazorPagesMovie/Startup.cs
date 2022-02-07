@@ -29,6 +29,12 @@ namespace RazorPagesMovie
 
             services.AddDbContext<RazorPagesMovieContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("RazorPagesMovieContext")));
+
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/Movies/Index", "");
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
